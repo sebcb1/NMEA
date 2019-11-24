@@ -1,0 +1,29 @@
+- name: Installation du serveur de dev
+  hosts: localhost
+
+  tasks:
+
+  - name: update the system
+    yum:
+      name: "*"
+      state: latest
+      
+  - name: Ensure some packages are present
+    yum:
+      name: git.x86_64, python3.x86_64, gcc.x86_64
+      state: present      
+      
+  - name: Disable SELinux
+    selinux:
+      state: disabled
+      
+  - name: Disable firewalld.service
+    systemd: name=firewalld enabled=no
+     
+  - name: Stop firewalld.service
+    systemd: name=firewalld state=stopped
+    
+  - name: Install virtualenv package
+    pip: 
+      name: virtualenv    
+      executable: pip3

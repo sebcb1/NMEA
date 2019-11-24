@@ -2,7 +2,7 @@
 
 ## Init repositoy
 
-TO init repo after creating initial repo on github:
+To init repo after creating initial repo on github:
 
 ```
 git clone https://github.com/sebcb1/NMEA.git
@@ -13,6 +13,8 @@ virtualenv -p /usr/bin/python3 python_venv
 source python_venv/bin/activate
 pip install Django
 echo "python_venv/*" >.gitignore
+echo "*.pyc" >>.gitignore
+echo "*.sqlite3" >>.gitignore
 git add .gitignore
 wget https://www.sqlite.org/2019/sqlite-autoconf-3300100.tar.gz
 gunzip sqlite-autoconf-3300100.tar.gz
@@ -34,13 +36,21 @@ vi ./web/settings.py
 export LD_LIBRARY_PATH=/usr/local/lib
 python manage.py runserver 0:8000
 
+
+
 see: http://192.168.56.10:8000
 
 deactivate
 ```
 
+cd ~/NMEA
+git commit -m "update" -a
+git push
+
 
 ## Install a new server
 
+```
 yum install ansible.noarch
 ansible-playbook install_dev_server.yml
+```
