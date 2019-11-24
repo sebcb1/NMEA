@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import trames
+from api.views import trames, trameComment
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/trames', trames )
+    path('api/trames', trames ),
+    path('trames/comment', trameComment )
 ]
