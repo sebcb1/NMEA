@@ -29,6 +29,8 @@ echo "sqlite-autoconf-3300100/*" >> .gitignore
 git add sqlite-autoconf-3300100.tar.gz
 
 django-admin startproject web
+python manage.py migrate
+python manage.py createsuperuser
 git add web
 cd web
 vi ./web/settings.py
@@ -41,12 +43,12 @@ python manage.py runserver 0:8000
 see: http://192.168.56.10:8000
 
 deactivate
-```
+
 
 cd ~/NMEA
 git commit -m "update" -a
 git push
-
+```
 
 ## Install a new server
 
