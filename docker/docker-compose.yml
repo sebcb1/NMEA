@@ -1,0 +1,10 @@
+version: "2"
+ 
+services:
+
+  web:
+    container_name: web
+    hostname: web
+    image: sebcb1/nmea_web:0.1.0
+    ports:
+      - "8080:8081"

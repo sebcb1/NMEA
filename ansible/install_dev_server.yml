@@ -10,7 +10,7 @@
       
   - name: Ensure some packages are present
     yum:
-      name: git.x86_64, python3.x86_64, gcc.x86_64
+      name: git.x86_64, python3.x86_64, gcc.x86_64, docker.x86_64, epel-release.noarch
       state: present      
       
   - name: Disable SELinux
@@ -22,8 +22,16 @@
      
   - name: Stop firewalld.service
     systemd: name=firewalld state=stopped
+
+  - name: Start docker.service
+    systemd: name=docker state=started
     
   - name: Install virtualenv package
     pip: 
       name: virtualenv    
+      executable: pip3
+      
+  - name: Install virtualenv package
+    pip: 
+      name: docker-compose    
       executable: pip3

@@ -13,7 +13,7 @@ def trames(request):
 
     if request.method=='POST':
         logger.error('### api/trames method: POST')
-        value=request.GET["value"]
+        value=request.GET["content"]
         logger.error('### api/trames var value:'+ str(value))
         trame = Trame(content=value)
         trame.save()
