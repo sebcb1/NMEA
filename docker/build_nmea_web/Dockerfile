@@ -32,7 +32,8 @@ ENV LD_LIBRARY_PATH=/usr/local/lib
 RUN python3 manage.py migrate
 RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python3 manage.py shell
 COPY start.sh /app
-CMD ["/bin/bash"]
+RUN chmod u+x /app/start.sh
+CMD ["/app/start.sh"]
 
 
 
