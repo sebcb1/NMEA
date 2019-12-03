@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 from api.models import Trame
 import logging
-from django.shortcuts import render_to_response
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +20,4 @@ def trames(request):
     else:
         return HttpResponse("{ error: True, msg: 'Only POST allowed'}\n")
 
-
-def trameComment(request):
-    return render_to_response('trameComment.html' )
     

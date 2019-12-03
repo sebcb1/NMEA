@@ -80,7 +80,7 @@ Then connect on http://192.168.56.10:8000/admin/
 
 ## Send trame
 
-Use curl to send trame:
+Use curl to send trames:
 
 ```
 curl -X POST  http://192.168.56.10:8000/api/trames?content=\$INZDA,163115,14,06,2008,-05,00*78
@@ -114,7 +114,7 @@ To build docker image on x86:
 ```
 cd /home/sebastien/NMEA/docker/build_nmea_web
 su
-docker build -t sebcb1/nmea_web:0.1.0 .
+docker build -t sebcb1/nmea_web:0.2.0 .
 docker login
 docker push sebcb1/nmea_web:0.1.0
 ```

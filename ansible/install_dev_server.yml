@@ -3,7 +3,7 @@
 
   tasks:
 
-  - name: update the system
+  - name: Update the system
     yum:
       name: "*"
       state: latest
@@ -25,6 +25,9 @@
 
   - name: Start docker.service
     systemd: name=docker state=started
+    
+  - name: Enable docker.service
+    systemd: name=docker enabled=yes
     
   - name: Install virtualenv package
     pip: 
