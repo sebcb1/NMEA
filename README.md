@@ -37,6 +37,7 @@ git add sqlite-autoconf-3300100.tar.gz
 
 django-admin startproject web
 python manage.py migrate
+python3 manage.py migratemigrations api
 python manage.py createsuperuser
 git add web
 cd web
@@ -114,7 +115,40 @@ To build docker image on x86:
 ```
 cd /home/sebastien/NMEA/docker/build_nmea_web
 su
-docker build -t sebcb1/nmea_web:0.2.0 .
+docker build --no-cache -t sebcb1/nmea_web:0.2.0 .
 docker login
-docker push sebcb1/nmea_web:0.1.0
+docker push sebcb1/nmea_web:0.2.0
 ```
+
+To test:
+
+```
+cd /home/sebastien/NMEA/docker
+su
+docker-compose run web /bin/bash
+cd /app
+./start.sh
+```
+
+## Start web container docker
+
+```
+cd /home/sebastien/NMEA/docker
+su
+docker-compose up -d 
+docker-compose logs -f web
+```
+
+## Links
+
+https://f-leb.developpez.com/tutoriels/arduino/esp8266/debuter/
+
+https://www.fais-le-toi-meme.fr/fr/electronique/materiel/esp8266-arduino-wifi-2-euros
+https://reso-nance.org/wiki/_detail/materiel/esp8266/esp-with-arduino-circuit.jpg?id=materiel%3Aesp8266%3Aaccueil
+http://espace-raspberry-francais.fr/Debuter-sur-Raspberry-Francais/Installation-Raspbian-et-premier-demarrage-Raspberry-Pi-Francais/
+https://code4pi.fr/2017/05/creer-hotspot-wifi-raspberry/
+https://github.com/raspberrypi/documentation/issues/1018#ref-commit-c1e42a2
+https://github.com/billz/raspap-webgui
+https://www.balena.io/etcher/
+https://code4pi.fr/2013/12/installation-dun-serveur-web-lighttpd/
+

@@ -30,10 +30,12 @@ WORKDIR /app/NMEA-master/web
 # Initialize website
 ENV LD_LIBRARY_PATH=/usr/local/lib
 RUN python3 manage.py migrate
+RUN python3 manage.py makemigrations api
+RUN python3 manage.py migrate
 RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python3 manage.py shell
 COPY start.sh /app
 RUN chmod u+x /app/start.sh
-CMD ["/app/start.sh"]
+ENTRYPOINT  ["/app/start.sh"]
 
-
+EXPOSE 8000
 
