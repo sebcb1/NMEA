@@ -130,6 +130,26 @@ cd /app
 ./start.sh
 ```
 
+To build docker image on RPy:
+
+```
+sudo su -
+curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker pi
+docker run hello-world
+
+curl -sSL https://get.docker.com | sh
+apt-get install libffi-dev libssl-dev
+apt-get install docker-compose docker
+git clone https://github.com/sebcb1/NMEA.git
+cd ./NMEA/docker/build_nmea_web
+docker build --no-cache -t sebcb1/nmea_web:0.2.0 .
+docker login
+docker push sebcb1/nmea_web:0.2.0
+```
+
+
+
 ## Start web container docker
 
 ```
@@ -138,6 +158,58 @@ su
 docker-compose up -d 
 docker-compose logs -f web
 ```
+
+## Install Raspberry Pi
+
+
+
+
+### Root login:
+
+Edit /etc/ssh/sshd_config
+```
+PermitRootLogin yes
+```
+
+Then:
+
+```
+/etc/init.d/ssh restart
+sudo passwd root
+```
+
+### Deploy dev part on raspberry pi
+
+git clone https://github.com/sebcb1/NMEA.git
+cd NMEA
+git config --global user.email "sebastienbrillard@icloud.com"
+git config --global user.name "Seb"
+
+gunzip sqlite-autoconf-3300100.tar.gz
+tar xvf sqlite-autoconf-3300100.tar
+cd sqlite-autoconf-3300100
+./configure 
+make
+sudo su 
+make install
+exit
+cd ..
+rm -rf sqlite-autoconf-3300100
+gzip sqlite-autoconf-3300100.tar
+
+pip3 install Django
+
+cd web
+export LD_LIBRARY_PATH=/usr/local/lib
+python3 manage.py migrate
+python3 manage.py makemigrations api
+python3 manage.py createsuperuser
+python3 manage.py migrate
+
+python3 manage.py runserver 0:8000
+
+### Refresh dev part on raspberry pi
+
 
 ## Links
 
