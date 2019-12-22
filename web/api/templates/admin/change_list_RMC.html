@@ -1,0 +1,25 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+    <div>
+		<table>
+			<tr>
+				<td>
+					<form  action="deleteAllRMC/" method="post">
+					<div><!-- DIV needed for valid HTML -->
+					<input type="submit" value="Delete all RMC data">
+					</div>
+					</form>
+				</td>
+				<td>
+					<form  action="exportAllRMC/" method="post">
+					<div><!-- DIV needed for valid HTML -->
+					<input type="submit" value="Export RMC to csv file">
+					</div>
+					</form>	
+				</td>			
+			</tr>
+		</table>
+    </div>
+    {{ block.super }}
+{% endblock %}

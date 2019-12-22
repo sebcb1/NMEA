@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from api.views import trames
 
+admin.site.site_header = "NMEA Admin"
+admin.site.site_title = "NMEA Admin Portal"
+admin.site.index_title = "Welcome to NMEA Portal"
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/trames', trames ),
