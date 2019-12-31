@@ -26,16 +26,16 @@ class DataRMC(models.Model):
 	utc = models.TimeField(verbose_name='UTC') 
 	status = models.CharField(max_length=1,verbose_name='Status') 
 	latitude = models.CharField(max_length=128,verbose_name='Latitude')
-	NorS = models.CharField(max_length=1,verbose_name='N or S', null=True)
-	longitude = models.CharField(max_length=128,verbose_name='Longitude', null=True)
-	EorW = models.CharField(max_length=1,verbose_name='E or W', null=True)
-	speed = models.CharField(max_length=128,verbose_name='Speed over ground, knots', null=True)
-	track = models.CharField(max_length=128,verbose_name='Track made good, degrees true', null=True)
-	date = models.CharField(max_length=128,verbose_name='Date', null=True)
-	magnetic = models.CharField(max_length=128,verbose_name='Magnetic Variation, degrees', null=True)
-	EorWm = models.CharField(max_length=1,verbose_name='E or W', null=True)
-	checksum = models.CharField(max_length=128,verbose_name='Checksum', null=True)
-	content = models.CharField(max_length=128, verbose_name='Trame content', null=True) 
+	NorS = models.CharField(max_length=1,verbose_name='N or S')
+	longitude = models.CharField(max_length=128,verbose_name='Longitude')
+	EorW = models.CharField(max_length=1,verbose_name='E or W')
+	speed = models.CharField(max_length=128,verbose_name='Speed over ground, knots')
+	track = models.CharField(max_length=128,verbose_name='Track made good, degrees true')
+	date = models.CharField(max_length=128,verbose_name='Date')
+	magnetic = models.CharField(max_length=128,verbose_name='Magnetic Variation, degrees')
+	EorWm = models.CharField(max_length=1,verbose_name='E or W')
+	checksum = models.CharField(max_length=128,verbose_name='Checksum')
+	content = models.CharField(max_length=128, verbose_name='Trame content') 
 
 # Example: $INDPT,2.3,0.0*46
 class DataDPT(models.Model):
@@ -48,5 +48,5 @@ class DataDPT(models.Model):
 	
 	depth = models.CharField(max_length=128,verbose_name='Depth') 
 	offset = models.CharField(max_length=128,verbose_name='Offset') 
-	checksum = models.IntegerField(verbose_name='Checksum')
+	checksum = models.CharField(max_length=128,verbose_name='Checksum')
 	content = models.CharField(max_length=128, verbose_name='Trame content')

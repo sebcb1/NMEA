@@ -177,6 +177,7 @@ sudo passwd root
 
 ### Deploy dev part on raspberry pi
 
+```
 git clone https://github.com/sebcb1/NMEA.git
 cd NMEA
 git config --global user.email "sebastienbrillard@icloud.com"
@@ -204,20 +205,20 @@ python3 manage.py createsuperuser
 
 
 python3 manage.py runserver 0:8000
+```
 
 ### Refresh dev part on raspberry pi
 
 
 ## Links
 
-https://f-leb.developpez.com/tutoriels/arduino/esp8266/debuter/
-
-https://www.fais-le-toi-meme.fr/fr/electronique/materiel/esp8266-arduino-wifi-2-euros
-https://reso-nance.org/wiki/_detail/materiel/esp8266/esp-with-arduino-circuit.jpg?id=materiel%3Aesp8266%3Aaccueil
-http://espace-raspberry-francais.fr/Debuter-sur-Raspberry-Francais/Installation-Raspbian-et-premier-demarrage-Raspberry-Pi-Francais/
-https://code4pi.fr/2017/05/creer-hotspot-wifi-raspberry/
-https://github.com/raspberrypi/documentation/issues/1018#ref-commit-c1e42a2
-https://github.com/billz/raspap-webgui
-https://www.balena.io/etcher/
-https://code4pi.fr/2013/12/installation-dun-serveur-web-lighttpd/
+* https://f-leb.developpez.com/tutoriels/arduino/esp8266/debuter/
+* https://www.fais-le-toi-meme.fr/fr/electronique/materiel/esp8266-arduino-wifi-2-euros
+* https://reso-nance.org/wiki/_detail/materiel/esp8266/esp-with-arduino-circuit.jpg?id=materiel%3Aesp8266%3Aaccueil
+* http://espace-raspberry-francais.fr/Debuter-sur-Raspberry-Francais/Installation-Raspbian-et-premier-demarrage-Raspberry-Pi-Francais/
+* https://code4pi.fr/2017/05/creer-hotspot-wifi-raspberry/
+* https://github.com/raspberrypi/documentation/issues/1018#ref-commit-c1e42a2
+* https://github.com/billz/raspap-webgui
+* https://www.balena.io/etcher/
+* https://code4pi.fr/2013/12/installation-dun-serveur-web-lighttpd/
 

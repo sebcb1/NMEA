@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from api.views import trames
+from django.shortcuts import redirect
 
 admin.site.site_header = "NMEA Admin"
 admin.site.site_title = "NMEA Admin Portal"
@@ -25,4 +26,5 @@ admin.site.index_title = "Welcome to NMEA Portal"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/trames', trames ),
+    path('', lambda request: redirect('admin/', permanent=False)),
 ]
