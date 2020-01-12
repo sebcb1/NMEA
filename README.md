@@ -64,17 +64,16 @@ To start the web server:
 
 ```
 cd NMEA
-source python_venv/bin/activate
 export LD_LIBRARY_PATH=/usr/local/lib
 cd web
-python manage.py runserver 0:8000
+python3 manage.py runserver 0:8000
 ```
 
 To update db if necessary:
 
 ```
-python manage.py makemigrations
-python manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate
 ```
 
 Then connect on http://192.168.33.91:8000/admin/

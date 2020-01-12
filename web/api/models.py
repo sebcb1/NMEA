@@ -50,3 +50,31 @@ class DataDPT(models.Model):
 	offset = models.CharField(max_length=128,verbose_name='Offset') 
 	checksum = models.CharField(max_length=128,verbose_name='Checksum')
 	content = models.CharField(max_length=128, verbose_name='Trame content')
+	
+class DataTopo(models.Model):
+
+	class Meta:
+		verbose_name = 'Topographic Trame'
+		verbose_name_plural = 'Topographic Trames'
+		
+	list_display = ('__unicode__', 'Topographic Trame',)
+	
+	latitude = models.CharField(max_length=128,verbose_name='Latitude')
+	NorS = models.CharField(max_length=1,verbose_name='N or S')
+	longitude = models.CharField(max_length=128,verbose_name='Longitude')
+	EorW = models.CharField(max_length=1,verbose_name='E or W')
+	depth = models.CharField(max_length=128,verbose_name='Depth') 
+	antenna_altitude = models.CharField(max_length=128,verbose_name='Altitude Atenna',default=None, blank=True, null=True)
+	antenna_altitude_metric = models.CharField(max_length=1,verbose_name='Altitude Atenna Metric',default=None, blank=True, null=True)
+	content = models.CharField(max_length=128, verbose_name='Trame content')
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

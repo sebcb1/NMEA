@@ -1,0 +1,25 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+    <div>
+		<table>
+			<tr>
+				<td>
+					<form  action="deleteAllTopo/" method="post">
+					<div><!-- DIV needed for valid HTML -->
+					<input type="submit" value="Delete all Topographic Trames">
+					</div>
+					</form>
+				</td>			
+				<td>
+					<form  action="exportAllTopo/" method="post">
+					<div><!-- DIV needed for valid HTML -->
+					<input type="submit" value="Export Topographic trames to csv file">
+					</div>
+					</form>	
+				</td>			
+			</tr>
+		</table>
+    </div>
+    {{ block.super }}
+{% endblock %}
